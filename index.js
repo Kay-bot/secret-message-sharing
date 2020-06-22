@@ -1,7 +1,13 @@
 document.querySelector("form").addEventListener("submit", (e) => {
   e.preventDefault();
 
-  const input = document.querySelector("input");
+  document.querySelector("#message-form").classList.add("hide");
+  document.querySelector("#link-form").classList.remove("hide");
 
-  console.log(input.value);
+  const input = document.querySelector("#message-input");
+  const encrypted = btoa(input.value);
+
+  const inputLink = document.querySelector("#link-input");
+  inputLink.value = `${window.location}#${encrypted}`;
+  inputLink.select();
 });
